@@ -1,0 +1,172 @@
+question one:
+
+
+  public class Parents {
+    String name;
+    int age;
+
+    public Parents(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    public void care(){
+        System.out.println("parents care for their child's");
+    }
+
+    public void displayInfo(){
+        System.out.println("Parent Name:" + name + ", Age:" + age);
+    }
+  }
+
+
+
+    class father extends Parents {
+    String careChild;
+
+    public father(String name, int age, String careChild){
+        super(name, age);
+        this.careChild = careChild;
+    }
+
+    @Override
+    public void care() {
+        System.out.println(name + " is giving a care as a " + careChild + ".");
+    }
+
+    public  void goToWork(){
+        System.out.println(name + " is going to work as a " + careChild + ".");
+    }
+  }
+
+
+
+   class child extends father {
+    String schoolCare;
+
+    public child(String name, int age, String careChild, String schoolCare){
+        super(name, age, careChild);
+        this.schoolCare = schoolCare;
+    }
+
+    public void goToSchool(){
+        System.out.println(name + " is attending  " + schoolCare + ".");
+    }
+
+    public void doingExercise(){
+        System.out.println(name + " is playing basketball after class. ");
+    }
+ }
+
+
+class mother extends Parents{
+    String motherDuty;
+
+    public mother(String name, int age, String motherDuty){
+        super(name, age);
+        this.motherDuty = motherDuty;
+    }
+
+    @Override
+    public void care(){
+        System.out.println(name + " is working " + motherDuty + ".");
+    }
+
+    public void printInfor(){
+        System.out.println(name + "  is a  "  + motherDuty + ". ");
+    }
+  }
+
+  public class Main{
+    public static void main(String[]args){
+
+        father father = new father("Hasan", 40, " consultant");
+        child child = new child("Abdi",  20, "consultant ",  "kampala school");
+        mother mother = new mother("Fatuma", 30, "Housekeeping");
+
+         father.displayInfo();
+         father.care();
+         father.goToWork();
+
+         child.displayInfo();
+         child.care();
+         child.goToSchool();
+         child.doingExercise();
+
+        mother.displayInfo();
+        mother.care();
+        mother.printInfor();
+    }
+  }
+
+
+
+
+
+
+           question two:
+
+       
+   public class Employee {
+
+    public void worker() {
+        System.out.println("Employee is working");
+    }
+
+    public void displayInfo() {
+        System.out.println("employee is perform his work");
+    }
+
+    public void displayInfo( String position){
+        System.out.println("position is: " + position);
+    }
+  }
+
+
+   class Manager extends Employee{
+
+    @Override
+    public void worker(){
+        System.out.println("manager is performing the big project");
+    }
+ }
+
+   class Director extends Employee {
+    @Override
+    public void worker(){
+        System.out.println("the director manages the employee");
+    }
+  }
+
+
+   public class main{
+    public static void manageWork(Employee Employee){
+        Employee.worker();
+    }
+
+    public static void main(String [] args) {
+
+        Manager manager = new Manager();
+        Director director = new Director();;
+
+        System.out.println("manager comes to work early:");
+        manager.worker();
+
+        System.out.println("director performs his task");
+        director.worker();
+
+        System.out.println("\n Display info");
+        manager.displayInfo();
+        director.displayInfo();
+
+        manager.displayInfo("manager");
+        director.displayInfo("director");
+
+
+        System.out.println("\nperforming a lot of tasks:");
+        manageWork(manager);
+        manageWork(director);
+
+
+    }
+  }
